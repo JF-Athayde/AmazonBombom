@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre - Sabores da Amazônia</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/sobre/sobre.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
+
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Sabor Paraense</div>
+      <div class="hamburger" onclick="toggleMenu(this)">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Início</a></li>
+        <li><a href="/#cardapio">Produtos</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Entrar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="sobre">
+    <section class="hero-sobre">
+      <div class="hero-texto">
+        <h1>Feito na Amazônia,<br>com o coração do Pará</h1>
+        <p>Descubra nossa história, nossos sabores e nosso amor pela floresta.</p>
+      </div>
+    </section>
+
+    <section class="conteudo">
+      <div class="container">
+        <div class="texto">
+          <h2>Quem somos</h2>
+          <p>Somos apaixonados pelos sabores autênticos da Amazônia. Desde 2023, transformamos ingredientes naturais e nativos em experiências sensoriais inesquecíveis: bombons, cachaças, farofas e muito mais, tudo com o toque mágico do Pará.</p>
+        </div>
+      </div>
+
+      <div class="container reverse">
+        <div class="texto">
+          <h2>Nossa missão</h2>
+          <p>Levar ao Brasil o sabor verdadeiro da Amazônia, valorizando os pequenos produtores, a floresta e a cultura paraense com respeito, sustentabilidade e inovação artesanal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="valores">
+      <h2>Nossos Valores</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Autenticidade</h3>
+          <p>Produtos 100% amazônicos, sem perder a essência do povo paraense.</p>
+        </div>
+        <div class="card">
+          <h3>Qualidade Artesanal</h3>
+          <p>Produção com carinho e cuidado em cada detalhe.</p>
+        </div>
+        <div class="card">
+          <h3>Sustentabilidade</h3>
+          <p>Respeitamos a floresta e quem vive dela.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Sabores da Amazônia. Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Termos de Uso</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='scripts/homepage.js') }}"></script>
+</body>
+</html>

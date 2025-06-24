@@ -1,0 +1,19 @@
+<nav class="navbar">
+    <div class="logo">Sabor Paraense</div>
+    <div class="hamburger" onclick="toggleMenu(this)">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('homepage') }}">Início</a></li>
+        <li><a href="#cardapio">Produtos</a></li>
+        <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+        
+        {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('logout') }}">Sair</a></li>
+        {% else %}
+            <li><a href="{{ url_for('login') }}">Entrar</a></li>
+        {% endif %}
+
+    </ul>
+</nav>

@@ -1,0 +1,251 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f9f5f1; /* bege clarinho */
+  color: #4a2c1a; /* marrom escuro */
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero-sobre {
+  padding: 120px 20px 100px 20px; /* topo, direita, baixo, esquerda */
+  background: none;
+  text-align: center;
+  color: #4a2c1a;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* ou remova o z-index se não for necessário */
+}
+
+.hero-sobre h1 {
+  font-family: 'Marcellus SC', serif;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(74, 44, 26, 0.35);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.hero-sobre p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 4px rgba(74, 44, 26, 0.25);
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+}
+
+/* Conteúdo */
+.conteudo {
+  padding: 60px 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 80px;
+  animation: fadeInLeft 1s ease forwards;
+  opacity: 0;
+}
+
+.container.reverse {
+  flex-direction: row-reverse;
+  animation: fadeInRight 1s ease forwards;
+}
+
+.texto {
+  flex: 1;
+  background: #f3ebe3; /* bege/marrom clarinho */
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(74, 44, 26, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.texto:hover {
+  box-shadow: 0 20px 45px rgba(74, 44, 26, 0.3);
+}
+
+.texto h2 {
+  font-family: 'Marcellus SC', serif;
+  font-size: 2.3rem;
+  color: #6b4423; /* marrom médio */
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.texto h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #6b4423, #a67c52);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.texto p {
+  font-size: 1.1rem;
+  color: #5b3e1e;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  transition: color 0.3s ease;
+}
+
+.texto:hover p {
+  color: #6b4423;
+}
+
+/* Valores */
+.valores {
+  background: #f3ebe3;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 4px solid #6b4423;
+}
+
+.valores h2 {
+  font-family: 'Marcellus SC', serif;
+  font-size: 2.8rem;
+  color: #6b4423;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(74, 44, 26, 0.1);
+  animation: fadeInUp 1.3s ease forwards;
+  opacity: 0;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  flex: 1 1 280px;
+  max-width: 320px;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(74, 44, 26, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 40px rgba(74, 44, 26, 0.3);
+}
+
+.card h3 {
+  font-family: 'Marcellus SC', serif;
+  color: #6b4423;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #5b3e1e;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  background: #6b4423;
+  color: #f3ebe3;
+  padding: 25px 10%;
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  box-shadow: inset 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.footer a {
+  color: #f3ebe3;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #a67c52;
+}
+
+/* ANIMAÇÕES - mantenha se quiser */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsividade para conteúdo */
+@media (max-width: 900px) {
+  .conteudo .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .container.reverse {
+    flex-direction: column;
+  }
+
+  .texto {
+    width: 100% !important;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .hero-sobre h1 {
+    font-size: 2.2rem;
+  }
+  .hero-sobre p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-sobre {
+    padding: 70px 15px;
+  }
+  .valores h2 {
+    font-size: 2rem;
+  }
+}

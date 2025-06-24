@@ -1,0 +1,43 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.footer {
+  background-color: #1a2a16; /* Verde escuro inspirado na Amazônia */
+  color: #dcdcdc;
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Marcellus SC', serif;
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer p {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-links li a {
+  color: #dcdcdc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #7bc74d; /* Verde claro, cor de destaque */
+}

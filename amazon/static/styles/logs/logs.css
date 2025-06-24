@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+#logo h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+form {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+form h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.it {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.it label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.it input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.it select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+    appearance: none;         /* Remove estilo padrão do select (seta) em vários navegadores */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg%20width%3d'10'%20height%3d'7'%20viewBox%3d'0%200%2010%207'%20xmlns%3d'http%3a//www.w3.org/2000/svg'%3e%3cpath%20d%3d'M0%200l5%207%205-7z'%20fill%3d'%23666'%20/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px 7px;
+}
+
+.it select:focus {
+    border-color: #91360c;
+    outline: none;
+    box-shadow: 0 0 3px #91360c;
+}
+
+
+input[type="submit"], button {
+    background-color: #91360c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #572108;
+}
+
+a {
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: #ff5555;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Sabores da Amazônia{% endblock %}</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/cardapio.css') }}">
+
+  {% block links %}
+  {% endblock %}
+  
+</head>
+<body>
+  {% block content %}{% endblock %}
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Sabores da Amazônia. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

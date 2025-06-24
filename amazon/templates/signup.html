@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Criar Conta{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/logs/logs.css') }}">
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'navbar.html' %}
+    </header>
+
+    <main>
+        <form method="POST" novalidate>
+            <h1>Sign up</h1>
+            {{ form.csrf_token }}
+
+            <div class="it">
+                {{ form.email.label() }}
+                {{ form.email(class_='form-control') }}
+                {% if form.email.errors %}
+                    <ul class="errors">
+                        {% for error in form.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="it">
+                {{ form.username.label() }}
+                {{ form.username(class_='form-control') }}
+                {% if form.username.errors %}
+                    <ul class="errors">
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="it">
+                {{ form.password.label() }}
+                {{ form.password(class_='form-control') }}
+                {% if form.password.errors %}
+                    <ul class="errors">
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="it">
+                {{ form.zip_code.label() }}
+                {{ form.zip_code(class_='form-control') }}
+                {% if form.zip_code.errors %}
+                    <ul class="errors">
+                        {% for error in form.zip_code.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="it">
+                {{ form.state.label() }}
+                {{ form.state(class_='form-control') }}
+                {% if form.state.errors %}
+                    <ul class="errors">
+                        {% for error in form.state.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="it">
+                {{ form.city.label() }}
+                {{ form.city(class_='form-control') }}
+                {% if form.city.errors %}
+                    <ul class="errors">
+                        {% for error in form.city.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+
+            <div class="it">
+                {{ form.address.label() }}
+                {{ form.address(class_='form-control') }}
+                {% if form.address.errors %}
+                    <ul class="errors">
+                        {% for error in form.address.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="it">
+                {{ form.complement.label() }}
+                {{ form.complement(class_='form-control') }}
+                {% if form.complement.errors %}
+                    <ul class="errors">
+                        {% for error in form.complement.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            {{ form.submit(class_='btn') }}
+
+            {% if form.errors %}
+                <div class="form-errors">
+                    <ul>
+                        {% for field, errors in form.errors.items() %}
+                            {% for error in errors %}
+                                <li><strong>{{ field }}:</strong> {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </form>
+
+        <a href="{{ url_for('login') }}">Já tem uma conta? Clique aqui para entrar.</a>
+    </main>
+
+    <script src="{{ url_for('static', filename='scripts/zip.js') }}"></script>
+{% endblock %}
