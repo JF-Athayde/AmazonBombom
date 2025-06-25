@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre - Sabores da Amazônia</title>
+{% extends "base.html" %}
 
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/footer.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/sobre/sobre.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
+{% block title %}Sobre - Sabores da Amazônia{% endblock %}
 
-</head>
-<body>
+{% block links %}
+<link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/footer.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/sobre/sobre.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
+{% endblock %}
+
+{% block content %}
   <header>
-    <nav class="navbar">
-      <div class="logo">Sabor Paraense</div>
-      <div class="hamburger" onclick="toggleMenu(this)">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="/">Início</a></li>
-        <li><a href="/#cardapio">Produtos</a></li>
-        <li><a href="/sobre">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
-        <li><a href="#">Entrar</a></li>
-      </ul>
-    </nav>
+    {% include 'navbar.html' %}
   </header>
 
   <main class="sobre">
@@ -73,17 +57,5 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <p>© 2025 Sabores da Amazônia. Todos os direitos reservados.</p>
-      <ul class="footer-links">
-        <li><a href="#">Política de Privacidade</a></li>
-        <li><a href="#">Termos de Uso</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </div>
-  </footer>
-
   <script src="{{ url_for('static', filename='scripts/homepage.js') }}"></script>
-</body>
-</html>
+{% endblock %}

@@ -1,4 +1,7 @@
-from amazon import app
+from amazon import app 
+from pyngrok import ngrok
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=81, debug=True)
+    public_url = ngrok.connect(5000)
+    print("URL pública:", public_url)
+    app.run()
