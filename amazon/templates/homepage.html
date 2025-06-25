@@ -7,9 +7,9 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/hero.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/cardapio.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/footer.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/hero.css') }}">
     </head>
     <body>
         <header>
@@ -17,14 +17,26 @@
         </header>
 
         <main>
-            <section class="hero">
+            <section class="hero hero-main">
                 <div class="hero-content">
                     <h1>Sabores autênticos diretamente do Pará</h1>
                     <p>Descubra os bombons artesanais de cupuaçu e outros produtos típicos da Amazônia, elaborados com ingredientes frescos e originais, colhidos no coração do Pará.</p>
                     <a href="#cardapio" class="btn">Explorar Produtos</a>
                 </div>
                 <div class="hero-image">
-                    <img src="{{ url_for('static', filename='assets/fotos/002.jpg') }}" alt="Bombom de Cupuaçu" />
+                    <img src="{{ url_for('static', filename='assets/fotos/002.jpg') }}" alt="Logos" />
+                </div>
+            </section>
+            
+            <section class="hero hero-bombom">
+                <div class="hero-image">
+                    <img src="{{ url_for('static', filename='assets/fotos/img001.jpeg') }}" alt="Bombom de cupuaçu">
+                </div>
+
+                <div class="hero-content">
+                    <h1>Bombom de Cupuaçu</h1>
+                    <p>Experimente o verdadeiro sabor da Amazônia com nosso bombom artesanal de cupuaçu, recheado com uma polpa cremosa, fresca e autêntica. Cada mordida traz o aroma e o sabor marcante da floresta.</p>
+                    <a href="/produto/8" class="btn">Ver mais</a>
                 </div>
             </section>
 
@@ -36,7 +48,7 @@
                             <img src="{{ url_for('static', filename=produto.image) }}" alt="{{ produto.name }}" />
                             <h3>{{ produto.name }}</h3>
                             <p>{{ produto.description }}</p>
-                            <a href="#" class="btn-produto">Comprar</a>
+                            <a href="{{ url_for('produto_detalhe', produto_id=produto.id) }}" class="btn-produto">Ver detalhes</a>
                         </div>
                     {% endfor %}
                 </div>

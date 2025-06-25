@@ -4,6 +4,12 @@ from wtforms.validators import DataRequired, Email, Length
 from flask_wtf.file import FileRequired, FileAllowed
 from wtforms.validators import Regexp
 
+class ContactForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired(), Length(max=100)])
+    email = StringField('Email', validators=[DataRequired(), Email(), Length(max=120)])
+    message = TextAreaField('Message', validators=[DataRequired(), Length(max=1000)])
+    submit = SubmitField('Send')
+
 class ProductForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(message="O nome é obrigatório.")])
     description = TextAreaField('Description', validators=[DataRequired(message="A descrição é obrigatória.")])

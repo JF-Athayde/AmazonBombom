@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Contato{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact/contact.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block content %}
+<header>
+    {% include 'navbar.html' %}
+</header>
+
+<main>
+    <div class="contato-container">
+        <div class="contato-form">
+            <h1>Fale Conosco</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div>
+                    {{ form.name.label }}
+                    {{ form.name(class="input") }}
+                    {% for error in form.name.errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.email.label }}
+                    {{ form.email(class="input") }}
+                    {% for error in form.email.errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.message.label }}
+                    {{ form.message(class="textarea") }}
+                    {% for error in form.message.errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn-produto") }}
+                </div>
+            </form>
+
+        </div>
+
+        <div class="contato-info">
+            <h2>Outros canais</h2>
+            <ul>
+                <li><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/5585991234000" target="_blank">(85) 99123-4000</a></li>
+                <li><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/amazonnutry" target="_blank">@amazonnutry</a></li>
+                <li><i class="fas fa-envelope"></i> Email: <a href="mailto:amazonnutry@gmail.com">amazonnutry@gmail.com</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> Endereço: Fortaleza - CE, Brasil</li>
+            </ul>
+        </div>
+    </div>
+</main>
+{% endblock %}

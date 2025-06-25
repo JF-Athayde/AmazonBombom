@@ -1,0 +1,206 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    color: #222;
+}
+
+.produto-detalhe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+}
+
+.produto-info {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    animation: aparecer 0.5s ease-out;
+    position: relative;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.img-wrapper {
+    position: relative;
+    display: inline-block;
+    background: #fff9f0;
+    padding: 1.2rem;
+    border-radius: 16px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.img-wrapper img {
+    height: 360px;
+    width: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    background-color: #2e8b57;
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 2;
+    white-space: nowrap; /* impede quebra de linha */
+}
+
+.info-texto {
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 600px;
+}
+
+.info-texto h1 {
+    font-family: 'Marcellus SC', serif;
+    font-size: 2.7rem;
+    margin-bottom: 1rem;
+    color: #1a3f2d;
+}
+
+.avaliacao {
+    font-size: 1.1rem;
+    color: #e7a314;
+    margin-bottom: 1.2rem;
+}
+
+.avaliacao span {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.descricao {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+.linha {
+    height: 2px;
+    background: #ddd;
+    width: 60%;
+    margin: 2rem auto;
+    border-radius: 10px;
+}
+
+.preco {
+    font-size: 2.4rem;
+    color: #2e8b57;
+    font-weight: 700;
+    margin: 1rem 0;
+    font-family: 'Marcellus SC', serif;
+}
+
+.beneficios p {
+    font-size: 1rem;
+    color: #2e8b57;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.entrega i,
+.garantia i,
+.beneficios i {
+    color: #2e8b57;
+}
+
+.btn-produto {
+    margin-top: 2rem;
+    padding: 0.9rem 2.5rem;
+    background: linear-gradient(135deg, #2e8b57, #1f5f3c);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-produto:hover {
+    background: linear-gradient(135deg, #226d3d, #17462e);
+    transform: scale(1.03);
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+    .produto-info {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3rem;
+    }
+
+    .img-wrapper {
+        margin-bottom: 0;
+        margin-right: 2rem;
+    }
+
+    .info-texto {
+        text-align: left;
+        padding: 0;
+    }
+
+    .linha {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-texto h1 {
+        font-size: 2.2rem;
+    }
+
+    .preco {
+        font-size: 2rem;
+    }
+
+    .btn-produto {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+

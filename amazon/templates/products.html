@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ produto.name }} - Sabores da Amazônia{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/products/products.css') }}">
+{% endblock %}
+
+{% block content %}
+<header>
+    {% include 'navbar.html' %}
+</header>
+
+<main class="produto-detalhe">
+    <div class="produto-info">
+        <div class="img-wrapper">
+            <div class="badge">Produto Amazônico 🌿</div>
+            <img src="{{ url_for('static', filename=produto.image) }}" alt="{{ produto.name }}">
+        </div>
+        <div class="info-texto">
+            <h1>{{ produto.name }}</h1>
+
+            <div class="avaliacao">
+                ⭐⭐⭐⭐⭐ <span>({{ produto.fake }} avaliações)</span>
+            </div>
+
+
+            <p class="descricao">{{ produto.description }}</p>
+
+            <div class="linha"></div>
+
+            <p class="preco">R$ {{ '%.2f'|format(produto.price) }}</p>
+
+            <div class="beneficios">
+                <p><i class="fa-solid fa-seedling"></i> Produto 100% natural e artesanal</p>
+                <p><i class="fa-solid fa-box-open"></i> Embalado à mão com carinho</p>
+                <p class="entrega"><i class="fa-solid fa-truck"></i> Entrega rápida em todo o Brasil</p>
+                <p class="garantia"><i class="fa-solid fa-shield-heart"></i> Garantia de qualidade e procedência</p>
+            </div>
+
+            <a href="#" class="btn-produto">Comprar Agora</a>
+        </div>
+    </div>
+</main>
+
+<script src="{{ url_for('static', filename='scripts/homepage.js') }}"></script>
+{% endblock %}

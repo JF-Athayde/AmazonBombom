@@ -2,11 +2,9 @@ from flask import *
 from amazon import app, database, bcrypt
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from amazon.form import *
-from amazon.models import Usuarios, Produto
+from amazon.models import Usuarios, Produto, ContactMessage
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect, CSRFError
-import os
-import requests
 
 @app.route('/')
 def homepage():
@@ -60,6 +58,26 @@ def signup():
 @app.route('/sobre')
 def sobre():
     return render_template('sobre.html')
+
+@app.route('/produto/<int:produto_id>')
+def produto_detalhe(produto_id):
+    produto = Produto.query.get_or_404(produto_id)
+    return render_template("products.html", produto=produto)
+
+@app.route('/contato', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        new_message = ContactMessage(
+            name=form.name.data,
+            email=form.email.data,
+            message=form.message.data
+        )
+        database.session.add(new_message)
+        database.session.commit()
+        flash("Your message has been sent successfully!", "success")
+        return redirect(url_for('contact'))
+    return render_template('contact.html', form=form)
 
 @app.route("/logout")
 @login_required

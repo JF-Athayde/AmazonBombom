@@ -1,91 +1,161 @@
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  margin: 1.5rem;
-  background-color: #fff5e6;
-  flex-wrap: nowrap;
-  gap: 3rem; /* Espaço controlado entre texto e imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    margin: 1.5rem;
+    background-color: #fff5e6;
+    flex-wrap: nowrap;
+    gap: 3rem;
 }
 
 .hero-content {
-  max-width: 500px;
-  flex-shrink: 0;
-  flex-basis: 50%;
+    max-width: 500px;
+    flex-shrink: 0;
+    flex-basis: 50%;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #3e2217;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #3e2217;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
 .hero-content p {
-  font-size: 1.4rem;
-  color: #5a392e;
-  margin-bottom: 2rem;
-  line-height: 1.7;
+    font-size: 1.4rem;
+    color: #5a392e;
+    margin-bottom: 2rem;
+    line-height: 1.7;
 }
 
 .btn {
-  background-color: #a35b28;
-  color: #fff8e7;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 1rem;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
+    background-color: #a35b28;
+    color: #fff8e7;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #c66a2d;
+    background-color: #c66a2d;
 }
 
 .hero-image {
-  flex-shrink: 0;
-  flex-basis: 50%;
-  text-align: center;
-  margin-top: 0; /* Sem espaçamento vertical extra em telas grandes */
+    flex-shrink: 0;
+    flex-basis: 50%;
+    text-align: center;
+    margin-top: 0;
 }
 
 .hero-image img {
-  max-width: 100%;
-  max-height: 400px;
-  height: auto;
-  width: auto;
-  border-radius: 20px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  object-fit: cover;
+    max-width: 100%;
+    max-height: 400px;
+    height: auto;
+    width: auto;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    object-fit: cover;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column-reverse;
-    text-align: center;
-    padding: 3rem 1.5rem;
-    gap: 1.5rem;
-  }
+/* --- MODIFICAÇÃO ESPECÍFICA DO BOMBOM --- */
+.hero-bombom {
+    flex-direction: row;
+}
 
-  .hero-content h1 {
-    font-size: 2rem;
-  }
+.hero-bombom .hero-image {
+    order: 1; /* imagem à esquerda */
+    text-align: left;
+}
 
-  .hero-content p {
+.hero-bombom .hero-content {
+    order: 2; /* texto à direita */
+    text-align: left;
+}
+
+.avaliacao {
     font-size: 1rem;
-  }
+    color: #e7a314;
+    margin-bottom: 1rem;
+}
 
-  .btn {
+.avaliacao span {
+    color: #555;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+.entrega,
+.garantia {
     font-size: 0.95rem;
-  }
+    margin-bottom: 0.5rem;
+    color: #2e8b57;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-  .hero-image {
-    margin-top: 1.5rem;
-  }
+.entrega i,
+.garantia i {
+    color: #2e8b57;
+}
+
+.btn-produto {
+    padding: 0.9rem 2.2rem;
+    background: linear-gradient(135deg, #2e8b57, #1f5f3c);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn-produto:hover {
+    background: linear-gradient(135deg, #226d3d, #17462e);
+    transform: scale(1.02);
+}
+
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    .hero-main {
+        flex-direction: column-reverse;
+    }
+
+    .hero-bombom {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 0.95rem;
+    }
+
+    .hero-image {
+        margin-top: 0;
+    }
+
+    .hero-bombom .hero-image,
+    .hero-bombom .hero-content {
+        text-align: center;
+    }
 }
