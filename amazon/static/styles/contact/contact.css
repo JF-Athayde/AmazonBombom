@@ -1,3 +1,7 @@
+main {
+    min-height: calc(100vh - 265px);
+}
+
 .contato-container {
     display: flex;
     flex-wrap: wrap;

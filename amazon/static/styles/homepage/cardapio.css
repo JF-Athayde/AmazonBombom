@@ -1,14 +1,26 @@
 .cardapio {
   padding: 4rem 2rem;
-  background-color: #fff8f0;
+
   text-align: center;
+  animation: fadeIn 1.2s ease forwards;
 }
 
 .cardapio h2 {
   font-family: 'Marcellus SC', serif;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   color: #3e2217;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.cardapio h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #a35b28;
+  margin: 10px auto 0;
+  border-radius: 5px;
 }
 
 .produtos {
@@ -26,14 +38,17 @@
   align-items: center;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   padding: 1.5rem;
   width: 80%;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
 }
 
 .produto-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-7px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .produto-card img {
@@ -42,40 +57,74 @@
   object-fit: contain;
   border-radius: 10px;
   margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.produto-card img:hover {
+  transform: scale(1.05);
 }
 
 .produto-card h3 {
   color: #5c2e14;
   margin-bottom: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 
 .produto-card p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #6c3b23;
   margin-bottom: 1rem;
   text-align: center;
+  line-height: 1.5;
+}
+
+.avaliacao {
+  font-size: 0.95rem;
+  color: #e7a314;
+  margin-bottom: 1rem;
+}
+
+.avaliacao span {
+  color: #666;
+  margin-left: 0.4rem;
 }
 
 .btn-produto {
   display: inline-block;
-  padding: 0.6rem 1.2rem;
   background-color: #a35b28;
   color: #fff8e7;
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  font-size: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-produto:hover {
   background-color: #c66a2d;
+  transform: scale(1.05);
 }
 
-/* 🔽 Aumenta os cards em telas menores (até 480px) */
+.btn-produto:active {
+  transform: scale(0.97);
+}
+
+/* Telas menores */
 @media (max-width: 480px) {
   .produto-card {
     max-width: 100%;
+  }
+}
+
+/* Animação para os cards */
+@keyframes fadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

@@ -2,9 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem 2rem;
-    margin: 1.5rem;
-    background-color: #fff5e6;
+    padding: 0rem 0rem;
+    margin: 6rem;
     flex-wrap: nowrap;
     gap: 3rem;
 }
@@ -55,27 +54,80 @@
 }
 
 .hero-image img {
+    width: 100%;
+    height: auto;
     max-width: 100%;
     max-height: 400px;
-    height: auto;
-    width: auto;
     border-radius: 20px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     object-fit: cover;
 }
 
 /* --- MODIFICAÇÃO ESPECÍFICA DO BOMBOM --- */
-.hero-bombom {
+.hero-main {
+    height: auto;
+    margin: 0;
     flex-direction: row;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/static/assets/fotos/amazonia_banner.webp");
+    object-fit: contain;
+    height: 40vh;
+}
+
+.hero-main h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-bombom {
+    padding: 3rem;
+    border-left: 6px double #c89b6e;
+    border-bottom: 6px double #c89b6e;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem auto;
+    margin-top: 10px;
+    max-width: 90%;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease-in-out;
 }
 
 .hero-bombom .hero-image {
-    order: 1; /* imagem à esquerda */
+    order: 1;
     text-align: left;
 }
 
+.hero-bombom .hero-image #img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 6px solid #c89b6e;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/static/assets/fotos/b.jpg');
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
 .hero-bombom .hero-content {
-    order: 2; /* texto à direita */
+    order: 2;
     text-align: left;
 }
 
@@ -107,12 +159,12 @@
 }
 
 .btn-produto {
-    padding: 0.9rem 2.2rem;
-    background: linear-gradient(135deg, #2e8b57, #1f5f3c);
+    padding: 0.5rem 1rem;
+    background-color: #a35b28;
     color: #fff;
     border: none;
     border-radius: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
@@ -120,22 +172,28 @@
 }
 
 .btn-produto:hover {
-    background: linear-gradient(135deg, #226d3d, #17462e);
+    background-color: #521e06;
     transform: scale(1.02);
 }
 
-
-/* --- RESPONSIVO --- */
 @media (max-width: 768px) {
     .hero-main {
         flex-direction: column-reverse;
     }
 
+    .hero-main h1 {
+        font-size: 2rem;
+    }
+
+    .hero-main {
+        height: 30vh;
+    }
+
     .hero-bombom {
         flex-direction: column;
         text-align: center;
-        padding: 3rem 1.5rem;
-        gap: 1.5rem;
+        padding-top: 10px;
+        gap: 1rem;
     }
 
     .hero-content h1 {
@@ -157,5 +215,13 @@
     .hero-bombom .hero-image,
     .hero-bombom .hero-content {
         text-align: center;
+    }
+
+    /* RESPONSIVIDADE DA IMAGEM BOMBOM */
+    .hero-bombom .hero-image #img {
+        width: 80vw;
+        max-width: 240px;
+        height: auto;
+        aspect-ratio: 1 / 1;
     }
 }

@@ -17,36 +17,37 @@
 
 <main>
     <section class="hero hero-main">
-        <div class="hero-content">
-            <h1>Sabores autênticos diretamente do Pará</h1>
-            <p>Descubra os bombons artesanais de cupuaçu e outros produtos típicos da Amazônia, elaborados com ingredientes frescos e originais, colhidos no coração do Pará.</p>
-            <a href="#cardapio" class="btn">Explorar Produtos</a>
-        </div>
-        <div class="hero-image">
-            <img src="{{ url_for('static', filename='assets/fotos/002.jpg') }}" alt="Logos" />
-        </div>
+        <h1>Amazon Nutry</h1>
     </section>
-    
+
     <section class="hero hero-bombom">
         <div class="hero-image">
-            <img src="{{ url_for('static', filename='assets/fotos/img001.jpeg') }}" alt="Bombom de cupuaçu">
+            <div id="img">
+                <img src="{{ url_for('static', filename='assets/produtos/bombom.png') }}" alt="Bombom de cupuaçu">
+            </div>
         </div>
         
         <div class="hero-content">
-            <h1>Bombom de Cupuaçu</h1>
-            <p>Experimente o verdadeiro sabor da Amazônia com nosso bombom artesanal de cupuaçu, recheado com uma polpa cremosa, fresca e autêntica. Cada mordida traz o aroma e o sabor marcante da floresta.</p>
-            <a href="/produto/8" class="btn">Ver mais</a>
+            <h1>Bombons de Cupuaçu</h1>
+            <p>Experimente o verdadeiro sabor da Amazônia com nosso bombom artesanal de cupuaçu, recheado com a pura polpa do cupuaçu, fresca e autêntica. Cada mordida traz o aroma e o sabor marcante da floresta.</p>
+            <a href="/produto/bombom" class="btn">Ver mais</a>
         </div>
     </section>
             
     <section class="cardapio" id="cardapio">
         <h2>Nossos Produtos</h2>
         <div class="produtos">
+            <div class="produto-card">
+                <img src="{{ url_for('static', filename=produto.image) }}" alt="{{ produto.name }}" />
+                <h3>{{ produto.name }}</h3>
+                <p>{{ produto.short_description }}</p>
+                <a href="{{ url_for('bombom') }}" class="btn-produto">Ver detalhes</a>
+            </div>
             {% for produto in produtos %}
             <div class="produto-card">
                 <img src="{{ url_for('static', filename=produto.image) }}" alt="{{ produto.name }}" />
                 <h3>{{ produto.name }}</h3>
-                <p>{{ produto.description }}</p>
+                <p>{{ produto.short_description }}</p>
                 <a href="{{ url_for('produto_detalhe', produto_id=produto.id) }}" class="btn-produto">Ver detalhes</a>
             </div>
             {% endfor %}

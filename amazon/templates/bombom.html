@@ -33,16 +33,25 @@
             <p class="descricao">{{ produto.description }}</p>
 
             <div class="linha"></div>
+            <div class="precos">
+                <div class="preco">
+                    <strong>R$ {{ '%.2f'|format(produto.price) }}</strong>
+                    <span id="min">Apartir de 10 unid</span>
+                </div>
+                <div class="preco">
+                    <strong>R$ 7.50</strong>
+                    <span id="min">Preço unitário</span>
+                </div>
+            </div>
 
-            <p class="preco">R$ {{ '%.2f'|format(produto.price) }}</p>
 
             <div class="beneficios">
                 <p><i class="fa-solid fa-seedling"></i> Produto 100% natural e artesanal</p>
-                <p><i class="fa-solid fa-box-open"></i> Embalado à mão com muito carinho</p>
-                <p class="entrega"><i class="fa-solid fa-truck"></i>  Entrega rápida em todo o Brasil</p>
+                <p><i class="fa-solid fa-box-open"></i> Embalado à mão com carinho</p>
+                <p class="entrega"><i class="fa-solid fa-truck"></i> Entrega rápida em todo o Brasil</p>
                 <p class="garantia"><i class="fa-solid fa-shield-heart"></i> Garantia de qualidade e procedência</p>
             </div>
-            
+
             <a href="#" class="btn-produto">Comprar Agora</a>
         </div>
     </div>

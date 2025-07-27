@@ -10,6 +10,7 @@ class Produto(database.Model):
     id = database.Column(database.Integer, primary_key=True)
     name = database.Column(database.String(100), nullable=False)
     description = database.Column(database.Text, nullable=False)
+    short_description = database.Column(database.String(150), nullable=True)  # novo campo
     image = database.Column(database.String(255), nullable=False)
     price = database.Column(database.Float, nullable=False)
     fake = database.Column(database.Integer, nullable=False, default=random.randint(120, 150))

@@ -6,10 +6,18 @@ from amazon.models import Usuarios, Produto, ContactMessage
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect, CSRFError
 
+PRODUTO = Produto(
+            name="Bombons de Cupuaçu",
+            description="Bombom de cupuaçu recheado com a pura polpa da fruta, fresca e autêntica. com recheio suave e consistente, envolto em chocolate meio amargo. 🍫🌱",
+            short_description="Bombom de cupuaçu com chocolate meio amargo.",
+            image="assets/produtos/bombom.png",
+            price=5.50,
+            fake=145
+        )
 @app.route('/')
 def homepage():
     produtos = Produto.query.all()
-    return render_template('homepage.html', produtos=produtos)
+    return render_template('homepage.html', produtos=produtos, produto=PRODUTO)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -79,6 +87,12 @@ def contact():
         return redirect(url_for('contact'))
     return render_template('contact.html', form=form)
 
+@app.route('/produto/bombom')
+def bombom():
+    produto = PRODUTO
+    print(produto)
+    return render_template("bombom.html", produto=produto)
+        
 @app.route("/logout")
 @login_required
 def logout():
