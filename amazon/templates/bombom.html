@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/footer.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/products/products.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/products/arrow.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/products/bombom.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -18,7 +20,16 @@
     <div class="produto-info">
         <div class="img-wrapper">
             <div class="badge">Produto Amazônico 🌿</div>
-            <img src="{{ url_for('static', filename=produto.image) }}" alt="{{ produto.name }}">
+            <div class="img-carousel">
+                <button id="prev-img" class="img-arrow" aria-label="Imagem anterior">&#8592;</button>
+                <img
+                    id="bombom-img"
+                    src="{{ url_for('static', filename=imagens[0]) }}"
+                    alt="{{ produto.name }}"
+                    data-imagens='[{% for img in imagens %}"{{ url_for("static", filename=img) }}"{% if not loop.last %},{% endif %}{% endfor %}]'
+                >
+                <button id="next-img" class="img-arrow" aria-label="Próxima imagem">&#8594;</button>
+            </div>
         </div>
         <div class="info-texto">
             <h1>{{ produto.name }}</h1>
@@ -52,10 +63,15 @@
                 <p class="garantia"><i class="fa-solid fa-shield-heart"></i> Garantia de qualidade e procedência</p>
             </div>
 
-            <a href="#" class="btn-produto">Comprar Agora</a>
+            <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 2rem;">
+                <a href="#" class="btn-produto">Comprar Agora</a>
+            </div>
         </div>
     </div>
 </main>
 
 <script src="{{ url_for('static', filename='scripts/homepage.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/arrow.js') }}"></script>
+
+
 {% endblock %}

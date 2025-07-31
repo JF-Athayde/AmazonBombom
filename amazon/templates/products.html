@@ -43,7 +43,15 @@
                 <p class="garantia"><i class="fa-solid fa-shield-heart"></i> Garantia de qualidade e procedência</p>
             </div>
             
-            <a href="#" class="btn-produto">Comprar Agora</a>
+            <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 2rem;">
+                <a href="#" class="btn-produto">Comprar Agora</a>
+                <form action="{{ url_for('add_to_cart', produto_id=produto.id) }}" method="post" style="margin:0;">
+                    {{ form.csrf_token }}
+                    <button type="submit" class="btn-produto" style="display: flex; align-items: center; gap: 0.5em;">
+                        <i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </main>

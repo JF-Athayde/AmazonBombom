@@ -2,22 +2,34 @@ from flask import *
 from amazon import app, database, bcrypt
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from amazon.form import *
-from amazon.models import Usuarios, Produto, ContactMessage
+from amazon.models import Usuarios, Produto, ContactMessage, Partner
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect, CSRFError
 
-PRODUTO = Produto(
+PRODUTO1 = Produto(
             name="Bombons de Cupuaçu",
             description="Bombom de cupuaçu recheado com a pura polpa da fruta, fresca e autêntica. com recheio suave e consistente, envolto em chocolate meio amargo. 🍫🌱",
             short_description="Bombom de cupuaçu com chocolate meio amargo.",
-            image="assets/produtos/bombom.png",
+            image= "assets/produtos/bombom.png",
             price=5.50,
             fake=145
         )
+
+PRODUTO2 = Produto(
+            name="Bombons de Cupuaçu",
+            description="Bombom de cupuaçu recheado com a pura polpa da fruta, fresca e autêntica. com recheio suave e consistente, envolto em chocolate meio amargo. 🍫🌱",
+            short_description="Bombom de cupuaçu com chocolate meio amargo.",
+            image= "assets/produtos/cupuacu-bg.png",
+            price=5.50,
+            fake=145
+        )
+
 @app.route('/')
 def homepage():
     produtos = Produto.query.all()
-    return render_template('homepage.html', produtos=produtos, produto=PRODUTO)
+    parceiros = Partner.query.all()
+    print(parceiros[0].image)
+    return render_template('homepage.html', produtos=produtos, produto1=PRODUTO1, produto2=PRODUTO2, parceiros=parceiros)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -70,7 +82,8 @@ def sobre():
 @app.route('/produto/<int:produto_id>')
 def produto_detalhe(produto_id):
     produto = Produto.query.get_or_404(produto_id)
-    return render_template("products.html", produto=produto)
+    form = DummyForm()
+    return render_template("products.html", produto=produto, form=form)
 
 @app.route('/contato', methods=['GET', 'POST'])
 def contact():
@@ -87,14 +100,79 @@ def contact():
         return redirect(url_for('contact'))
     return render_template('contact.html', form=form)
 
-@app.route('/produto/bombom')
-def bombom():
-    produto = PRODUTO
-    print(produto)
-    return render_template("bombom.html", produto=produto)
+@app.route('/produto/bombom/1')
+def bombom1():
+    produto = PRODUTO1
+    imagens = [
+        "assets/produtos/bombom.png",
+        "assets/produtos/cupuacu-bg.png"
+    ]
+    form = DummyForm()
+    return render_template("bombom.html", produto=produto, imagens=imagens, form=form)
+
+@app.route('/produto/bombom/2')
+def bombom2():
+    produto = PRODUTO2
+    imagens = [
+        "assets/produtos/cupuacu-bg.png",
+        "assets/produtos/bombom.png"
+    ]
+    form = DummyForm()
+    return render_template("bombom.html", produto=produto, imagens=imagens, form=form)
         
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect(url_for("homepage"))
+
+from flask import session
+
+def get_cart():
+    return session.get('cart', {})
+
+@app.route('/add_to_cart/<int:produto_id>', methods=['POST'])
+def add_to_cart(produto_id):
+    cart = get_cart()
+    cart[str(produto_id)] = cart.get(str(produto_id), 0) + 1
+    session['cart'] = cart
+    return redirect(request.referrer or url_for('cart'))
+
+@app.route('/remove_from_cart/<int:produto_id>', methods=['POST'])
+def remove_from_cart(produto_id):
+    cart = get_cart()
+    if str(produto_id) in cart:
+        cart[str(produto_id)] -= 1
+        if cart[str(produto_id)] <= 0:
+            del cart[str(produto_id)]
+    session['cart'] = cart
+    return redirect(url_for('cart'))
+
+@app.route('/cart')
+def cart():
+    cart = get_cart()
+    produtos = []
+    total = 0
+    for pid, qty in cart.items():
+        produto = Produto.query.get(int(pid))
+        if produto:
+            produtos.append({'produto': produto, 'qty': qty, 'subtotal': produto.price * qty})
+            total += produto.price * qty
+    form = DummyForm()
+    return render_template('cart.html', produtos=produtos, total=total, form=form)
+
+@app.route('/checkout', methods=['GET', 'POST'])
+def checkout():
+    cart = get_cart()
+    produtos = []
+    total = 0
+    for pid, qty in cart.items():
+        produto = Produto.query.get(int(pid))
+        if produto:
+            produtos.append({'produto': produto, 'qty': qty, 'subtotal': produto.price * qty})
+            total += produto.price * qty
+    if request.method == 'POST':
+        session.pop('cart', None)
+        flash('Pedido realizado com sucesso!', 'success')
+        return redirect(url_for('homepage'))
+    return render_template('checkout.html', produtos=produtos, total=total)

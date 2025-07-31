@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/cardapio.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/footer.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/hero.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/partners.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -38,17 +39,30 @@
         <h2>Nossos Produtos</h2>
         <div class="produtos">
             <div class="produto-card">
-                <img src="{{ url_for('static', filename=produto.image) }}" alt="{{ produto.name }}" />
-                <h3>{{ produto.name }}</h3>
-                <p>{{ produto.short_description }}</p>
-                <a href="{{ url_for('bombom') }}" class="btn-produto">Ver detalhes</a>
+                <img src="{{ url_for('static', filename=produto2.image) }}" alt="{{ produto2.name }}" />
+                <h3>{{ produto2.name }}</h3>
+                <p>{{ produto2.short_description }}</p>
+                <a href="{{ url_for('bombom2') }}" class="btn-produto">Ver detalhes</a>
             </div>
+
             {% for produto in produtos %}
             <div class="produto-card">
                 <img src="{{ url_for('static', filename=produto.image) }}" alt="{{ produto.name }}" />
                 <h3>{{ produto.name }}</h3>
                 <p>{{ produto.short_description }}</p>
                 <a href="{{ url_for('produto_detalhe', produto_id=produto.id) }}" class="btn-produto">Ver detalhes</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="parceiros" id="parceiros">
+        <h2>Nossos Parceiros</h2>
+        <div class="parceiros-lista">
+            {% for parceiro in parceiros %}
+            <div class="parceiro-card">
+                <img src="{{ url_for('static', filename=parceiro.image) }}" alt="{{ parceiro.name }}" />
+                <h3>{{ parceiro.name }}</h3>
             </div>
             {% endfor %}
         </div>

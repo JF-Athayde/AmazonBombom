@@ -30,3 +30,8 @@ class ContactMessage(database.Model):
     name = database.Column(database.String(100), nullable=False)
     email = database.Column(database.String(120), nullable=False)
     message = database.Column(database.Text, nullable=False)
+
+class Partner(database.Model):
+    id = database.Column(database.Integer, primary_key=True)
+    name = database.Column(database.String(100), nullable=False)
+    image = database.Column(database.String(255), nullable=False)

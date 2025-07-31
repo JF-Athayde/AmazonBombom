@@ -110,3 +110,6 @@ class RegistrationForm(FlaskForm):
         ]
     )
     submit = SubmitField('Register')
+
+class DummyForm(FlaskForm):
+    pass

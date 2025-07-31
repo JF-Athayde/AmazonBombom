@@ -85,12 +85,18 @@ header {
     border-radius: 3px;
 }
 
+@media (max-width: 900px) {
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
-        z-index: 1001; /* Garante que fique acima do menu */
+        z-index: 1001;
     }
-
     .nav-links {
         position: absolute;
         top: 70px;
@@ -103,38 +109,32 @@ header {
         width: 200px;
         box-shadow: 0 0 10px rgba(0,0,0,0.3);
         z-index: 1000;
-
-        /* animação tipo língua */
         transform: scaleY(0);
         transform-origin: top;
         transition: transform 0.4s ease, opacity 0.4s ease;
         opacity: 0;
         visibility: hidden;
     }
-
     .nav-links.open {
         transform: scaleY(1);
         opacity: 1;
         visibility: visible;
     }
-
     .nav-links li {
         width: 100%;
         margin-bottom: 0.5rem;
     }
-
     .nav-links li a {
         width: 100%;
         display: block;
         padding: 0.6rem 1rem;
     }
-    
     .hamburger .bar {
         width: 25px;
         height: 3px;
         background-color: white;
         border-radius: 3px;
-        transition: transform 0.3s ease, opacity 0.3s ease; /* <-- Adicionado */
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
 }
 

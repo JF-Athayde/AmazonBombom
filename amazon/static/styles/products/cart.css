@@ -1,0 +1,89 @@
+.cart-main {
+    width: 98vw;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(44,62,80,0.10);
+    font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+.cart-main h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #2e8b57;
+    font-family: 'Marcellus SC', serif;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.cart-table th, .cart-table td {
+    padding: 0.8rem 0.5rem;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.cart-table th {
+    background: #f7f7f7;
+    color: #a35b28;
+    font-size: 1.1rem;
+}
+
+.cart-btn {
+    background: #a35b28;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 0 2px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.cart-btn:hover {
+    background: #c66a2d;
+    transform: scale(1.08);
+}
+
+.cart-total {
+    font-size: 1.3rem;
+    color: #2e8b57;
+    margin-bottom: 2rem;
+}
+
+.btn-produto {
+    background-color: #a35b28;
+    color: #fff8e7;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.btn-produto:hover {
+    background-color: #c66a2d;
+}
+
+@media (max-width: 700px) {
+    .cart-main {
+        padding: 1rem;
+    }
+    .cart-table th, .cart-table td {
+        padding: 0.5rem 0.2rem;
+        font-size: 0.95rem;
+    }
+}

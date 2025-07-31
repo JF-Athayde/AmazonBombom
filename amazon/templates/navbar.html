@@ -1,3 +1,6 @@
+<!-- Add Font Awesome CDN link in the head section or before the navbar -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <nav class="navbar">
   <div class="logo-wrapper">
     <div class="logo">Amazon Nutry</div>
@@ -11,15 +14,21 @@
   </div>
 
   <ul class="nav-links">
+    <li><a href="{{ url_for('homepage') }}#cardapio">Produtos</a></li>
     <li><a href="{{ url_for('homepage') }}">Início</a></li>
-    <li><a href="#cardapio">Produtos</a></li>
     <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
     <li><a href="{{ url_for('contact') }}">Contato</a></li>
-
     {% if current_user.is_authenticated %}
       <li><a href="{{ url_for('logout') }}">Sair</a></li>
     {% else %}
       <li><a href="{{ url_for('login') }}">Entrar</a></li>
     {% endif %}
+    <li>
+      <a href="{{ url_for('cart') }}" title="Carrinho">
+        Carrinho
+        <i class="fa-solid fa-cart-shopping" style="font-size:1.5em;vertical-align:middle;"></i>
+      </a>
+    </li>
   </ul>
+</nav>
 </nav>

@@ -1,0 +1,97 @@
+.parceiros {
+    padding: 48px 0 32px 0;
+    background: linear-gradient(180deg, #f7f7f7 80%, #e9f5ee 100%);
+    text-align: center;
+}
+
+.parceiros h2 {
+    font-family: 'Marcellus SC', serif;
+    font-size: 2.3rem;
+    margin-bottom: 36px;
+    color: #23613b;
+    letter-spacing: 1px;
+}
+
+.parceiros-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 10px;
+}
+
+.parceiro-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 18px rgba(44, 62, 80, 0.10);
+    padding: 36px 20px 28px 20px;
+    width: 230px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    border: 1px solid #e3e3e3;
+}
+
+.parceiro-card:hover {
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+    transform: translateY(-6px) scale(1.04);
+    border-color: #b2e2c7;
+}
+
+.parceiro-card img {
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+    margin-bottom: 0;
+    margin-top: 8px;
+    display: block;
+    border-radius: 14px;
+    background: #f2f2f2;
+    box-shadow: 0 1px 8px rgba(44, 62, 80, 0.07);
+    border: 2px solid #e9f5ee;
+}
+
+.parceiro-card h3 {
+    font-size: 1.18rem;
+    color: #23613b;
+    margin-top: 22px;
+    margin-bottom: 0;
+    font-family: 'Marcellus SC', serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 0 #e9f5ee;
+}
+
+@media (max-width: 900px) {
+    .parceiros-lista {
+        gap: 24px;
+    }
+    .parceiro-card {
+        width: 180px;
+        padding: 28px 10px 18px 10px;
+    }
+    .parceiro-card img {
+        width: 90px;
+        height: 90px;
+    }
+    .parceiro-card h3 {
+        font-size: 1rem;
+        margin-top: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .parceiros-lista {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+    .parceiro-card {
+        width: 90vw;
+        min-width: 0;
+        max-width: 320px;
+    }
+}

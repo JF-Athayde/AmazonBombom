@@ -1,0 +1,27 @@
+.img-carousel img#bombom-img {
+    max-width: 350px;
+    max-height: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 22px;
+    box-shadow: 0 2px 16px rgba(44,62,80,0.12);
+    background: #f7f7f7;
+    border: none; /* removida a borda amarela */
+    transition: transform 0.3s;
+}
+
+@media (max-width: 700px) {
+    .img-carousel img#bombom-img {
+        max-width: 220px;
+        max-height: 180px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-carousel img#bombom-img {
+        max-width: 140px;
+        max-height: 110px;
+        border-radius: 10px;
+    }
+}

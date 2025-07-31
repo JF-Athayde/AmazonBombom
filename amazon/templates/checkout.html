@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/products/cart.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage/footer.css') }}">
+{% endblock %}
+{% block content %}
+<header>
+    {% include 'navbar.html' %}
+</header>
+<main class="cart-main">
+    <h1>Checkout</h1>
+    {% if produtos %}
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Qtd</th>
+                <th>Preço</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in produtos %}
+            <tr>
+                <td>{{ item.produto.name }}</td>
+                <td>{{ item.qty }}</td>
+                <td>R$ {{ '%.2f'|format(item.produto.price) }}</td>
+                <td>R$ {{ '%.2f'|format(item.subtotal) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="cart-total">
+        <strong>Total: R$ {{ '%.2f'|format(total) }}</strong>
+    </div>
+    <form method="post">
+        {{ csrf_token() }}
+        <button type="submit" class="btn-produto">Confirmar Pedido</button>
+    </form>
+    {% else %}
+    <p>Seu carrinho está vazio.</p>
+    {% endif %}
+</main>
+{% endblock %}
